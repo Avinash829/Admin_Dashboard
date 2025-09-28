@@ -6,8 +6,8 @@ const router = Router();
 
 router.get("/", getCases);
 router.get("/:id", getCaseById);
-router.post("/", upload.array("images", 5), createCase);
-router.put("/:id", upload.array("images", 5), updateCase);
+router.post("/", upload.array("images"), createCase);
+router.put("/:id", upload.array("images"), updateCase);
 router.delete("/:id", deleteCase);
 
 export default router;

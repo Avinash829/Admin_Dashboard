@@ -77,7 +77,7 @@ const updateCase = async (req: Request, res: Response) => {
             {
                 ...(title && { title }),
                 ...(description && { description }),
-                ...(imageUrls.length > 0 && { images: imageUrls }),
+                ...(imageUrls.length > 0 && { $push: { images: { $each: imageUrls } } }),
             },
             { new: true }
         );

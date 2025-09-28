@@ -1,11 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from "./routes/authRoutes";
 import casesRouter from "./routes/cases";
 import servicesRouter from "./routes/services";
 import teamRouter from "./routes/team";
 import partnersRouter from "./routes/partners";
+import dashboardRouter from "./routes/dashboard";
+import tasksRouter from "./routes/tasks";
 
 
 dotenv.config();
@@ -14,6 +17,13 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+app.use(cors({
+    origin: "http://localhost:3000", // allow requests from Next.js dev server
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // if you send cookies or auth headers
+}));
+
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI!)
     .then(() => console.log("MongoDB connected"))
@@ -21,9 +31,11 @@ mongoose.connect(process.env.MONGO_URI!)
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/dashboard", dashboardRouter);
+app.use("/api/tasks", tasksRouter);
 app.use("/api/cases", casesRouter);
 app.use("/api/services", servicesRouter);
-app.use("/api/team", teamRouter);
+app.use("/api/teams", teamRouter);
 app.use("/api/partners", partnersRouter);
 
 
