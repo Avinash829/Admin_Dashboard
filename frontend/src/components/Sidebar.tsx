@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiGrid, FiBriefcase, FiUsers, FiLayers, FiUser, FiCheckSquare } from "react-icons/fi";
+import { FiGrid, FiBriefcase, FiUsers, FiLayers } from "react-icons/fi";
 
 const navItems = [
     { name: "Dashboard", href: "/dashboard", icon: FiGrid },

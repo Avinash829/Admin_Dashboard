@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { UserContext } from "@/context/UserContext";
 import { useRouter } from "next/navigation";
-import { FiUser, FiLogOut } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 
 export default function Navbar() {
     const { user, logout } = useContext(UserContext);
