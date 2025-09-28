@@ -17,12 +17,29 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+dotenv.config();
+
+const allowedOrigins = [
+    process.env.FRONTEND_URL,
+    process.env.FRONTEND_URL_PROD
+];
+
 app.use(cors({
-    origin: "http://localhost:3000", // allow requests from Next.js dev server
+    origin: function (origin, callback) {
+        s
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, // if you send cookies or auth headers
+    credentials: true,
 }));
+
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI!)
