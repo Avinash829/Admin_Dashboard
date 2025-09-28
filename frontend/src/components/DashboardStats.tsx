@@ -48,12 +48,17 @@ export default function Dashboard() {
             try {
                 const res = await api.get("/dashboard/stats");
                 setStats(res.data.data);
-            } catch (err: any) {
-                console.error("Error fetching dashboard stats:", err);
+            } catch (err: unknown) {
+                if (err instanceof Error) {
+                    console.error("Error fetching dashboard stats:", err.message);
+                } else {
+                    console.error("Unknown error fetching dashboard stats");
+                }
             }
         };
         fetchStats();
     }, []);
+
 
     useEffect(() => {
         const fetchMeetings = async () => {
