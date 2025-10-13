@@ -121,7 +121,7 @@ export default function Dashboard() {
 
     return (
         <div className="p-6 space-y-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 bg-white p-6 rounded-xl shadow">
                 {stats ? (
                     <>
                         <Card
@@ -156,13 +156,16 @@ export default function Dashboard() {
                         />
                     </>
                 ) : (
-                    <div className="col-span-5 flex justify-center py-10">
-                        <p className="text-gray-400 animate-pulse">Loading stats...</p>
-                    </div>
-                )}
+                    <div className="flex justify-center items-center py-10 text-gray-500 align-middle col-span-5">
+                        <FiPlus className="animate-spin mr-2" /> Loading stats...
+                        </div>
+               
+               
+            )}
+                
             </div>
 
-            <section>
+            <section className="bg-white p-4 rounded-lg shadow">
                 <div className="flex items-center justify-between mb-4">
                     <h2 className="text-xl font-bold">Meetings</h2>
                     <button

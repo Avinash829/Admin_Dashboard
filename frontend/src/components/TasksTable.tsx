@@ -34,7 +34,7 @@ export default function TasksTable() {
 
             <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
                 <thead>
-                    <tr className="bg-gray-100">
+                    <tr className="bg-gray-300">
                         <th className="px-4 py-2 text-left">Title</th>
                         <th className="px-4 py-2 text-left">Description</th>
                         <th className="px-4 py-2 text-left">Due Date</th>
@@ -43,7 +43,7 @@ export default function TasksTable() {
                 </thead>
                 <tbody>
                     {tasks.map(t => (
-                        <tr key={t._id} className="border-t">
+                        <tr key={t._id} className="hover:bg-gray-100 ">
                             <td className="px-4 py-3 font-medium">{t.title}</td>
                             <td className="px-4 py-3">{t.description}</td>
                             <td className="px-4 py-3">{new Date(t.dueDate).toLocaleDateString()}</td>

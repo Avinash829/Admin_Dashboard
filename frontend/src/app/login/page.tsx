@@ -32,7 +32,7 @@ export default function LoginPage() {
 
 
     return (
-        <div className="flex h-screen items-center justify-center bg-gray-50">
+        <div className="flex h-screen items-center justify-center bg-gray-200">
             <div className="bg-white shadow rounded-xl p-8 w-full max-w-md">
                 <h2 className="text-2xl text-center font-bold text-indigo-600">Login</h2>
                 {error && <p className="text-red-500 text-center">{error}</p>}
@@ -42,14 +42,14 @@ export default function LoginPage() {
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full border rounded-lg px-3 py-2"
+                        className="w-full border rounded-lg px-3 py-2 text-gray-700"
                     />
                     <input
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="w-full border rounded-lg px-3 py-2"
+                        className="w-full border rounded-lg px-3 py-2 text-gray-700"
                     />
                     <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">Login</button>
                 </form>

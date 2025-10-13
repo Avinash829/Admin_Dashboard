@@ -113,7 +113,7 @@ export default function CasesTable() {
 
     return (
         <section>
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6 bg-white p-4 rounded-lg shadow">
                 <h2 className="text-xl font-bold">Cases</h2>
                 <button
                     onClick={() => openForm()}
@@ -199,7 +199,7 @@ export default function CasesTable() {
             )}
 
             {loading && (
-                <div className="flex justify-center items-center py-10 text-gray-500">
+                <div className="flex justify-center items-center py-10 text-gray-500 bg-white rounded-lg shadow">
                     <FiPlus className="animate-spin mr-2" /> Loading cases...
                 </div>
             )}

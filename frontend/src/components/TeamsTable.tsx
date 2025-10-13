@@ -84,7 +84,7 @@ export default function TeamsTable() {
 
     return (
         <section>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-4 bg-white p-4 rounded-lg shadow">
                 <h2 className="text-xl font-bold">Team Members</h2>
                 <button
                     onClick={() => openForm()}
@@ -96,33 +96,33 @@ export default function TeamsTable() {
 
             {showForm && (
                 <div className="bg-white rounded-lg shadow p-6 mb-6">
-                    <h3 className="text-lg font-semibold mb-4">
+                    <h3 className="text-lg font-semibold mb-4 text-gray-800">
                         {editing ? "Edit Member" : "Add Member"}
                     </h3>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium">Name</label>
+                            <label className="block text-sm font-medium text-gray-800">Name</label>
                             <input
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
-                                className="mt-1 w-full border rounded px-3 py-2 focus:ring focus:ring-blue-200"
+                                className="mt-1 w-full border rounded px-3 py-2 focus:ring focus:ring-blue-200 text-gray-800"
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium">Role</label>
+                            <label className="block text-sm font-medium text-gray-800">Role</label>
                             <input
                                 value={role}
                                 onChange={(e) => setRole(e.target.value)}
                                 required
-                                className="mt-1 w-full border rounded px-3 py-2 focus:ring focus:ring-blue-200"
+                                className="mt-1 w-full border rounded px-3 py-2 focus:ring focus:ring-blue-200 text-gray-800"
                             />
                         </div>
                         <div className="flex justify-end gap-2 pt-2">
                             <button
                                 type="button"
                                 onClick={() => setShowForm(false)}
-                                className="px-4 py-2 border rounded hover:bg-gray-50"
+                                className="px-4 py-2 border rounded hover:bg-gray-50 text-gray-800"
                             >
                                 Cancel
                             </button>
@@ -138,8 +138,8 @@ export default function TeamsTable() {
             )}
 
             {loading && (
-                <div className="flex justify-center items-center py-10 text-gray-500">
-                    Loading team members...
+                <div className="flex justify-center items-center py-10 text-gray-500 bg-white rounded-lg shadow">
+                   <FiPlus className="animate-spin mr-2" />  Loading team members...
                 </div>
             )}
 
@@ -168,7 +168,7 @@ export default function TeamsTable() {
                         </thead>
                         <tbody className="divide-y">
                             {teams.map((t) => (
-                                <tr key={t._id} className="hover:bg-gray-50">
+                                <tr key={t._id} className="hover:bg-gray-50 text-gray-800">
                                     <td className="px-4 py-3">{t.name}</td>
                                     <td className="px-4 py-3 text-gray-600">{t.role}</td>
                                     <td className="px-4 py-3 text-right space-x-2">
